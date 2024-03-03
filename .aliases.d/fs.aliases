@@ -1,0 +1,19 @@
+# preserve-root
+alias rm='rm --preserve-root'
+alias chown='chown --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chgrp='chgrp --preserve-root'
+
+# change dirs
+alias ..='cd ..'
+alias ...='cd ../../../'
+alias ....='cd ../../../../'
+alias .....='cd ../../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../..'
+
+# filesize
+alias mount='mount | column -t'
+
+# create directory tree
+alias mkdir='mkdir -pv'

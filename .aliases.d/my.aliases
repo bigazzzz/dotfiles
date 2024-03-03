@@ -1,0 +1,23 @@
+# nginx features
+nginxreload='nginx -t && systemctl restart nginx'
+
+# server sudo operations
+alias reboot='sudo /sbin/reboot'
+alias poweroff='sudo /sbin/poweroff'
+alias halt='sudo /sbin/halt'
+alias shutdown='sudo /sbin/shutdown'
+
+# на всякий случай
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+# TODO создать алиасы в зависимости от ОС
+#_myos="$(uname)"
+#case $_myos in
+#Linux) alias foo='/path/to/linux/bin/foo';;
+#FreeBSD|OpenBSD) alias foo='/path/to/bsd/bin/foo' ;;
+#SunOS) alias foo='/path/to/sunos/bin/foo' ;;
+#*) ;;
+#esac

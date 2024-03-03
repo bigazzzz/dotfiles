@@ -1,0 +1,23 @@
+[ -f ~/.aliases.d/common.aliases ] && source ~/.aliases.d/common.aliases
+[ -f ~/.aliases.d/fs.aliases ] && source ~/.aliases.d/fs.aliases
+[ -f ~/.aliases.d/network.aliases ] && source ~/.aliases.d/network.aliases
+
+[ -f ~/.aliases.d/debian.aliases ] && source ~/.aliases.d/debian.aliases
+
+[ -f ~/.aliases.d/features.aliases ] && source ~/.aliases.d/features.aliases
+
+[ -f ~/.aliases.d/git.aliases ] && source ~/.aliases.d/git.aliases
+
+[ -f ~/.aliases.d/future.aliases ] && source ~/.aliases.d/future.aliases
+
+[ -f ~/.aliases.d/my.aliases ] && source ~/.aliases.d/my.aliases
+[ -f ~/.aliases.d/other.aliases ] && source ~/.aliases.d/other.aliases
+[ -f ~/.aliases.d/short.aliases ] && source ~/.aliases.d/short.aliases
+
+# k8s
+[ -f ~/.aliases.d/kubectl.aliases ] && source ~/.aliases.d/kubectl.aliases
+alias -g sorttime="--sort-by=.metadata.creationTimestamp"
+alias krrds="kubectl rollout restart ds"
+alias krrdep="kubectl rollout restart deployment"
+alias ktopno="kubectl top nodes"
+alias ktoppo="kubectl top pods"

@@ -1,0 +1,5 @@
+alias h='history'
+# alias j='jobs -l'
+alias -g g="| grep"
+alias -g l="| less"
+alias -g m="| more"

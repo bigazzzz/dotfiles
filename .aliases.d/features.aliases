@@ -1,0 +1,12 @@
+# features
+alias distro='cat /etc/*release /etc/*version 2>/dev/null'
+alias trace="traceroute"
+alias myip="curl ipinfo.io/ip; echo"
+alias ipinfo="curl ifconfig.co/json"
+alias localip="ifconfig | grep 'inet[[:space:]]' | grep -v 127.0.0.1 | awk '{print $2}'"
+alias gw="netstat -rn | awk '/^0.0.0.0/ {print $2}'"
+alias sshconfig='$EDITOR ~/.ssh/config'
+alias sshcfg=sshconfig
+alias ny="nslookup ya.ru"
+alias py="ping -c2 ya.ru"
+alias pig="ping -c2 8.8.8.8"

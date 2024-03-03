@@ -1,0 +1,4 @@
+alias c="code ."
+alias e="explorer.exe ."
+alias j="just"
+alias w="watch -n"

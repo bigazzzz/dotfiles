@@ -1,0 +1,7 @@
+# alias ls="exa -al"
+# alias ll="exa -al --icons"
+# alias ee="exa -abghHliS --icons"
+# alias et="exa -lT --icons"
+# alias more="batcat --style full"
+# alias cat="batcat --style=plain --paging=never"
+# alias du="duf"
