@@ -1,0 +1,70 @@
+# Настройки текстовых редакторов
+export EDITOR=vim
+export LESS="-RFXig --tabs=4"
+
+# sharehistory - синхронизация истории между терминалами
+# histignorealldups - не сохраняем в истории одинаковые команды
+setopt histignorealldups sharehistory
+
+# подсветка файлов
+eval "$(dircolors -b)"
+
+# Сохраняем 10000 строк истории
+HISTSIZE=10000
+SAVEHIST=10000
+HISTTIMEFORMAT="%Y-%m-%d %T "
+
+# куда сохраняем?
+HISTFILE=~/.zsh_history
+
+# aliases
+source ~/.aliases
+
+# git config
+git config --global merge.tool vscode
+git config --global mergetool.vscode.cmd 'code --wait $MERGED'
+git config --global diff.tool vscode
+git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
+
+##  completions
+# k8s
+source <(kubectl completion zsh)
+alias k=kubectl
+compdef __start_kubectl k
+alias kc=kubecolor
+source <(helm completion zsh)
+# bitenv
+source <(binenv completion zsh)
+
+# paths
+export PATH=~/.binenv:$PATH
+fpath=(~/.zsh/completion $fpath)
+export PATH=$PATH:$HOME/.local/bin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+# tmux feature
+if [ -z "$TMUX" ]
+then
+    tmux attach -t TMUX || tmux new -s TMUX
+fi
+
+# password function
+pswd() {
+    if [ $# -eq 0 ];then
+        SYMBOL_COUNT=22
+    else
+        SYMBOL_COUNT=${1}
+    fi
+    tr -cd '[:alnum:]' < /dev/urandom | fold -w ${SYMBOL_COUNT} | head -n1
+}
+
+# zsh prompt
+RPROMPT='$(kube_ps1)'
+
+## ssh agent
+eval $(ssh-agent -s)
+
+## server option
+echo "Your last access was $(last|head -n2|tail -n1|sed 's/[^ ]\+ \+[^ ]\+ \+[^ ]\+ \+//;s/ *$//')"
