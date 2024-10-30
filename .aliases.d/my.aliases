@@ -7,6 +7,8 @@ alias poweroff='sudo /sbin/poweroff'
 alias halt='sudo /sbin/halt'
 alias shutdown='sudo /sbin/shutdown'
 
+# sudo
+alias _='sudo -s'
 # на всякий случай
 alias path='echo -e ${PATH//:/\\n}'
 alias now='date +"%T"'
