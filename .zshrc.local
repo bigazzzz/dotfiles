@@ -18,7 +18,7 @@ HISTTIMEFORMAT="%Y-%m-%d %T "
 HISTFILE=~/.zsh_history
 
 # aliases
-source ~/.aliases
+[ -f ~/.aliases ] && source ~/.zshrc.aliases
 
 # git config
 git config --global merge.tool vscode
@@ -43,19 +43,10 @@ zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
 
 # k8s
-which kubectl &> /dev/null \
-    && source <(kubectl completion zsh) \
-    && alias k=kubectl \
-    && compdef __start_kubectl k
-which helm &> /dev/null \
-    && source <(helm completion zsh)
-
-which bitenv &> /dev/null \
-    && source <(bitenv completion zsh) \
-    && export PATH=~/.binenv:$PATH
-
+which kubectl &> /dev/null && source ~/.zshrc.kubectl
+which helm &> /dev/null && source ~/.zshrc.helm
+which bitenv &> /dev/null && source ~/.zshrc.bitenv
 kubectl krew version &> /dev/null && export PATH="${PATH}:${HOME}/.krew/bin"
-
 
 # paths
 fpath=(~/.zsh/completion $fpath)
