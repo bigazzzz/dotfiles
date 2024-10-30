@@ -27,14 +27,13 @@ plugins=(
         kubetail
         tmux
         safe-paste
-        history-substring-search
         copyfile
         copybuffer
         dirhistory
         history
-        emoji
         jsontools
         alias-finder
+        direnv
 )
 
 source $ZSH/oh-my-zsh.sh
