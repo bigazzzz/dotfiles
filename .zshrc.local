@@ -71,9 +71,6 @@ pswd() {
     tr -cd '[:alnum:]' < /dev/urandom | fold -w ${SYMBOL_COUNT} | head -n1
 }
 
-# zsh prompt
-RPROMPT='$(kube_ps1)'
-
 ## ssh agent
 eval $(ssh-agent -s)
 
