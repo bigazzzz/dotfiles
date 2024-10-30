@@ -18,7 +18,7 @@ HISTTIMEFORMAT="%Y-%m-%d %T "
 HISTFILE=~/.zsh_history
 
 # aliases
-[ -f ~/.zshrcaliases ] && source ~/.zshrc.aliases
+[ -f ~/.zshrc.aliases ] && source ~/.zshrc.aliases
 
 # git config
 git config --global merge.tool vscode
