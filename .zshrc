@@ -34,6 +34,7 @@ plugins=(
         history
         emoji
         jsontools
+        alias-finder
 )
 
 source $ZSH/oh-my-zsh.sh
