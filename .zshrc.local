@@ -43,19 +43,24 @@ zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
 
 # k8s
-source <(kubectl completion zsh)
-alias k=kubectl
-compdef __start_kubectl k
-alias kc=kubecolor
-source <(helm completion zsh)
-# bitenv
-source <(binenv completion zsh)
+which kubectl &> /dev/null \
+    && source <(kubectl completion zsh) \
+    && alias k=kubectl \
+    && compdef __start_kubectl k
+which helm &> /dev/null \
+    && source <(helm completion zsh)
+
+which bitenv &> /dev/null \
+    && source <(bitenv completion zsh) \
+    && export PATH=~/.binenv:$PATH
+
+kubectl krew version &> /dev/null && export PATH="${PATH}:${HOME}/.krew/bin"
+
 
 # paths
-export PATH=~/.binenv:$PATH
 fpath=(~/.zsh/completion $fpath)
-export PATH=$PATH:$HOME/.local/bin
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH=$HOME/.local/bin:$PATH
+
 
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
