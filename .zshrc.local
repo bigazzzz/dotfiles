@@ -52,7 +52,6 @@ kubectl krew version &> /dev/null && export PATH="${PATH}:${HOME}/.krew/bin"
 fpath=(~/.zsh/completion $fpath)
 export PATH=$HOME/.local/bin:$PATH
 
-
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 # tmux feature
