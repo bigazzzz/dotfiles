@@ -8,6 +8,8 @@
 **/.toolstarget
 **/.vs
 **/.vscode
+**/.idea
+**/.workspace
 **/*.*proj.user
 **/*.dbmdl
 **/*.jfm
@@ -19,7 +21,8 @@
 **/node_modules
 **/npm-debug.log
 **/obj
-**/secrets.dev.yaml
-**/values.dev.yaml
+**/.secret
+**/*.tmp.yml
+**/*.tmp
 LICENSE
 README.md

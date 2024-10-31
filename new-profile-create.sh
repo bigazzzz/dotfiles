@@ -38,11 +38,33 @@ fc-cache -f -v
 
 [ -d ~/git ] || mkdir ~/git
 [ -d ~/projects ] || mkdir ~/projects
+[ -d ~/.local/bin ] || mkdir ~/.local/bin
 
 [ -d ~/git/dotfiles ] && rm -rf ~/git/dotfiles
 git clone https://github.com/bigazzzz/dotfiles.git ~/git/dotfiles
 
 cp -f ~/git/dotfiles/.zshrc* ~/
+
+cp -rf ~/git/dotfiles/.ssh ~
+
+cp -rf ~/git/dotfiles/scripts ~
+
+cp -rf ~/git/dotfiles/.aliases.d ~
+
+cp -f ~/git/dotfiles/.dockerignore ~
+cp -f ~/git/dotfiles/.gitconfig ~
+
+cp -rf ~/git/dotfiles/.tmux ~
+cp -f ~/git/dotfiles/.tmux.conf ~
+
+# install nodejs for coc.vim
+# нужна экспертиза
+#cp -rf ~/git/dotfiles/.vim ~
+#cp -f ~/git/dotfiles/.vimrc ~
+
+# install kubectl
+curl -o ~/.local/bin/kubectl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x ~/.local/bin/kubectl
 
 # install other applications
 sudo apt-get install -y \
