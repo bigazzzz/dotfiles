@@ -46,6 +46,7 @@ git clone https://github.com/bigazzzz/dotfiles.git ~/git/dotfiles
 cp -f ~/git/dotfiles/.zshrc* ~/
 
 cp -rf ~/git/dotfiles/.ssh ~
+mkdir -p ~/.ssh/sockets
 
 cp -rf ~/git/dotfiles/scripts ~
 
