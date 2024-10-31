@@ -43,6 +43,12 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-if [ -f ~/.zsh/git-prompt.zsh/git-prompt.zsh ]; then source ~/.zsh/git-prompt.zsh/git-prompt.zsh; fi
-if [ -f ~/.zsh/git-prompt.zsh/examples/multiline.zsh ]; then source ~/.zsh/git-prompt.zsh/examples/multiline.zsh; fi
-if [ -f ~/.zshrc.local ]; then source ~/.zshrc.local; fi
+# install git-prompt.zsh
+# https://github.com/woefe/git-prompt.zsh
+[ -d ~/.zsh ] || mkdir ~/.zsh
+[ -d ~/.zsh/git-prompt.zsh ] || git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.zsh/git-prompt.zsh
+[ -f ~/.zsh/git-prompt.zsh/git-prompt.zsh ] && source ~/.zsh/git-prompt.zsh/git-prompt.zsh
+[ -f ~/.zsh/git-prompt.zsh/examples/multiline.zsh ] && source ~/.zsh/git-prompt.zsh/examples/multiline.zsh
+
+# upload my env
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
