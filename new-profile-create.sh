@@ -58,10 +58,7 @@ cp -f ~/git/dotfiles/.gitconfig ~
 cp -rf ~/git/dotfiles/.tmux ~
 cp -f ~/git/dotfiles/.tmux.conf ~
 
-# install nodejs for coc.vim
-# нужна экспертиза
-#cp -rf ~/git/dotfiles/.vim ~
-#cp -f ~/git/dotfiles/.vimrc ~
+cp -f ~/git/dotfiles/.vimrc ~
 
 # install kubectl
 sudo curl -o /usr/local/bin/kubectl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
