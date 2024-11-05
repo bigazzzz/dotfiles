@@ -77,6 +77,7 @@ sudo apt-get install -y \
 	vim \
 	htop \
 	fonts-powerline	\
-	direnv
+	direnv \
+	nodejs
 
 rm -rf ~/git/dotfiles

@@ -16,7 +16,8 @@ set linebreak
 " Дополнение в виде меню
 set completeopt=menu
 " Чтобы нормально вводить команды в русской раскладке
-set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+" set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+set keymap=russian-jcukenwin
 " по умолчанию - латинская раскладка
 set iminsert=0
 " по умолчанию - латинская раскладка при поиске

@@ -1,33 +1,31 @@
 # Настройки текстовых редакторов
 export EDITOR=vim
 export LESS="-RFXig --tabs=4"
+export LC_ALL=ru_RU.UTF-8
+export LANG=ru_RU.UTF-8
 
-# подсветка файлов
-eval "$(dircolors -b)"
+# set options
+setopt nohup               # Don't kill background jobs when I logout
+setopt notify              # report the status of background jobs immediately
 
 # sharehistory - синхронизация истории между терминалами
 # histignorealldups - не сохраняем в истории одинаковые команды
 setopt histignorealldups sharehistory
-
-# Сохраняем 10000 строк истории
-HISTSIZE=10000
-SAVEHIST=10000
+# Сохраняем 50000 строк истории
+HISTSIZE=50000
+SAVEHIST=50000
 HISTTIMEFORMAT="%Y-%m-%d %T "
-
 # куда сохраняем?
 HISTFILE=~/.zsh_history
+
+# подсветка файлов
+eval "$(dircolors -b)"
 
 # aliases
 [ -f ~/.zshrc.aliases ] && source ~/.zshrc.aliases
 
 # function
 [ -f ~/.zshrc.functions ] && source ~/.zshrc.functions
-
-# git config
-git config --global merge.tool vscode
-git config --global mergetool.vscode.cmd 'code --wait $MERGED'
-git config --global diff.tool vscode
-git config --global difftool.vscode.cmd 'code --wait --diff $LOCAL $REMOTE'
 
 ##  completions
 #alias-finder plugin
@@ -44,11 +42,13 @@ zstyle ':completion:*:processes-names' command 'ps -e -o comm='
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
 
-# k8s
+#
 which kubectl &> /dev/null && source ~/.zshrc.kubectl
 which helm &> /dev/null && source ~/.zshrc.helm
 which bitenv &> /dev/null && source ~/.zshrc.bitenv
 which kube_ps1 &> /dev/null && source ~/.zshrc.kube-ps1
+which git &> /dev/null && source ~/.zshrc.git
+
 kubectl krew version &> /dev/null && source  ~/.zshrc.krew
 
 # paths
