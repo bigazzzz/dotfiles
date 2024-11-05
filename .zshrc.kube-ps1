@@ -1,0 +1,4 @@
+# kube-ps1 settings
+kubeon
+KUBE_PS1_SYMBOL_ENABLE=false
+RPROMPT='$(kube_ps1)'

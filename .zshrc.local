@@ -48,6 +48,7 @@ zstyle ':completion:*:killall:*'   force-list always
 which kubectl &> /dev/null && source ~/.zshrc.kubectl
 which helm &> /dev/null && source ~/.zshrc.helm
 which bitenv &> /dev/null && source ~/.zshrc.bitenv
+which kube_ps1 &> /dev/null && source ~/.zshrc.kube-ps1
 kubectl krew version &> /dev/null && source  ~/.zshrc.krew
 
 # paths
@@ -61,10 +62,6 @@ export PATH=$HOME/.local/bin:$PATH
 #then
 #    tmux attach -t TMUX || tmux new -s TMUX
 #fi
-
-# kube-ps1 settings
-KUBE_PS1_SYMBOL_ENABLE=false
-RPROMPT='$(kube_ps1)'
 
 ## ssh agent
 eval $(ssh-agent -s)
