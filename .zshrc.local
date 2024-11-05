@@ -20,6 +20,9 @@ HISTFILE=~/.zsh_history
 # aliases
 [ -f ~/.zshrc.aliases ] && source ~/.zshrc.aliases
 
+# function
+[ -f ~/.zshrc.functions ] && source ~/.zshrc.functions
+
 # git config
 git config --global merge.tool vscode
 git config --global mergetool.vscode.cmd 'code --wait $MERGED'
@@ -37,7 +40,6 @@ zstyle ':completion:*:processes' command 'ps -ax'
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;32'
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
-
 zstyle ':completion:*:processes-names' command 'ps -e -o comm='
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
@@ -46,7 +48,7 @@ zstyle ':completion:*:killall:*'   force-list always
 which kubectl &> /dev/null && source ~/.zshrc.kubectl
 which helm &> /dev/null && source ~/.zshrc.helm
 which bitenv &> /dev/null && source ~/.zshrc.bitenv
-kubectl krew version &> /dev/null && export PATH="${PATH}:${HOME}/.krew/bin"
+kubectl krew version &> /dev/null && source  ~/.zshrc.krew
 
 # paths
 fpath=(~/.zsh/completion $fpath)
@@ -60,46 +62,9 @@ export PATH=$HOME/.local/bin:$PATH
 #    tmux attach -t TMUX || tmux new -s TMUX
 #fi
 
-# password function
-pswd() {
-    if [ $# -eq 0 ];then
-        SYMBOL_COUNT=22
-    else
-        SYMBOL_COUNT=${1}
-    fi
-    tr -cd '[:alnum:]' < /dev/urandom | fold -w ${SYMBOL_COUNT} | head -n1
-}
-
-x509_generate() {
-    if [ $# -eq 0 ];then
-        DOMAIN=example.org
-    else
-        DOMAIN=${1}
-    fi
-    openssl req -x509 -nodes -days 10000 -newkey rsa:2048 -keyout ${DOMAIN}.key -out ${DOMAIN}.crt -subj="/CN=${DOMAIN}"
-}
-
-x509_view() {
-    if [ $# -eq 0 ];then
-        echo "Need crt file" && exit 1
-    fi
-    openssl x509 -noout -text -in ${1}
-}
-
-x509_enddate(){
-    if [ $# -eq 0 ];then
-        echo "Need crt file" && exit 1
-    fi
-    openssl x509 -noout -enddate -in ${1}
-}
-
-x509_url() {
-    if [ $# -eq 0 ];then
-        echo "Need URL" && exit 1
-    fi
-    openssl s_client -showcerts -verify 5 -connect ${1} | openssl x509
-
-}
+# kube-ps1 settings
+KUBE_PS1_SYMBOL_ENABLE=false
+RPROMPT='$(kube_ps1)'
 
 ## ssh agent
 eval $(ssh-agent -s)

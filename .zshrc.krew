@@ -1,0 +1,6 @@
+export PATH="${PATH}:${HOME}/.krew/bin"
+source <(kubectl get-all completion zsh)
+source <(kubectl klock completion zsh)
+source <(kubectl ice completion zsh)
+source <(kubectl kor completion zsh)
+source <(kubectl kurt completion zsh)
