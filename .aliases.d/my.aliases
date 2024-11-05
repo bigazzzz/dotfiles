@@ -23,3 +23,13 @@ alias nowdate='date +"%d-%m-%Y"'
 #SunOS) alias foo='/path/to/sunos/bin/foo' ;;
 #*) ;;
 #esac
+
+# kubectl my aliases
+alias kdp="kubectl delete pod -A --field-selector='status.phase==Failed'"
+alias calicoctl="kubectl exec -i -n kube-system calicoctl -- /calicoctl "
+alias -g sorttime="--sort-by=.metadata.creationTimestamp"
+alias -g label="-Lapp_name -Lapp_version"
+alias krrds="kubectl rollout restart ds"
+alias krrdep="kubectl rollout restart deployment"
+alias ktopno="kubectl top nodes"
+alias ktoppo="kubectl top pods"

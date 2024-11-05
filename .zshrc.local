@@ -70,6 +70,37 @@ pswd() {
     tr -cd '[:alnum:]' < /dev/urandom | fold -w ${SYMBOL_COUNT} | head -n1
 }
 
+x509_generate() {
+    if [ $# -eq 0 ];then
+        DOMAIN=example.org
+    else
+        DOMAIN=${1}
+    fi
+    openssl req -x509 -nodes -days 10000 -newkey rsa:2048 -keyout ${DOMAIN}.key -out ${DOMAIN}.crt -subj="/CN=${DOMAIN}"
+}
+
+x509_view() {
+    if [ $# -eq 0 ];then
+        echo "Need crt file" && exit 1
+    fi
+    openssl x509 -noout -text -in ${1}
+}
+
+x509_enddate(){
+    if [ $# -eq 0 ];then
+        echo "Need crt file" && exit 1
+    fi
+    openssl x509 -noout -enddate -in ${1}
+}
+
+x509_url() {
+    if [ $# -eq 0 ];then
+        echo "Need URL" && exit 1
+    fi
+    openssl s_client -showcerts -verify 5 -connect ${1} | openssl x509
+
+}
+
 ## ssh agent
 eval $(ssh-agent -s)
 

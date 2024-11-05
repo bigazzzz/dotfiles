@@ -16,10 +16,3 @@
 
 # k8s
 [ -f ~/.aliases.d/kubectl.aliases ] && source ~/.aliases.d/kubectl.aliases
-alias -g sorttime="--sort-by=.metadata.creationTimestamp"
-alias krrds="kubectl rollout restart ds"
-alias krrdep="kubectl rollout restart deployment"
-alias ktopno="kubectl top nodes"
-alias ktoppo="kubectl top pods"
-alias -g sorttime="--sort-by=.metadata.creationTimestamp"
-alias -g label="-Lapp_name -Lapp_version"
