@@ -90,6 +90,7 @@ kubectl krew version &> /dev/null || \
 )
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+kubectl krew update
 kubectl krew install < ~/git/dotfiles/__config/krew/plugin.list
 
 rm -rf ~/git/dotfiles
