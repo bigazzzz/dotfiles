@@ -77,6 +77,13 @@ sudo apt-get install -y \
 	direnv \
 	nodejs
 
+# install network tools
+sudo apt-get install -y \
+    bind9-dnsutils \
+    nmap \
+    traceroute \
+    hping3
+
 # install krew
 kubectl krew version &> /dev/null || \
 (
