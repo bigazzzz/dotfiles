@@ -53,6 +53,7 @@ kubectl krew version &> /dev/null && source  ~/.zshrc.krew
 
 # paths
 fpath=(~/.zsh/completion $fpath)
+export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH=$HOME/.local/bin:$PATH
 
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
