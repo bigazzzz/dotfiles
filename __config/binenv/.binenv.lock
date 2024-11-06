@@ -1,0 +1,18 @@
+#binenv: default
+binenv=>0.21.1
+#helm: default
+helm=>3.16.1
+#helmfile: default
+helmfile=>0.168.0
+#kubectl: default
+kubectl=>1.31.1
+#kubectx: default
+kubectx=>0.9.5
+#kubens: default
+kubens=>0.9.5
+#websocat: default
+websocat=>1.13.0
+#yh: default
+yh=>0.4.0
+#yq: default
+yq=>4.44.3

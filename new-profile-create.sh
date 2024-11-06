@@ -10,7 +10,7 @@ sudo apt-get update -y \
 sudo apt-get install -y \
 	curl \
 	wget \
-	git \
+	git
 
 sudo apt-get install -y zsh
 chsh -s $(which zsh)
@@ -61,11 +61,11 @@ cp -f ~/git/dotfiles/.tmux.conf ~
 cp -f ~/git/dotfiles/.vimrc ~
 
 # install kubectl
-sudo curl -o /usr/local/bin/kubectl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-sudo chmod +x /usr/local/bin/kubectl
+# sudo curl -o /usr/local/bin/kubectl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+# sudo chmod +x /usr/local/bin/kubectl
 
 # install helm
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | sudo bash
+# curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | sudo bash
 
 # install other applications
 sudo apt-get install -y \
@@ -75,7 +75,9 @@ sudo apt-get install -y \
 	htop \
 	fonts-powerline	\
 	direnv \
-	nodejs
+	nodejs \
+	jq \
+	just
 
 # install network tools
 sudo apt-get install -y \
@@ -99,5 +101,17 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 kubectl krew update
 kubectl krew install < ~/git/dotfiles/__config/krew/plugin.list
+
+# install binenv
+wget -q https://github.com/devops-works/binenv/releases/download/v0.19.11/binenv_linux_amd64
+mv binenv_linux_amd64 binenv
+chmod +x binenv
+./binenv update
+./binenv install binenv
+rm binenv
+export PATH=~/.binenv:$PATH
+cp -i ~/git/bigazzzz/dotfiles/__config/binenv/.binenv.lock ~/
+binenv install --lock
+
 
 rm -rf ~/git/dotfiles

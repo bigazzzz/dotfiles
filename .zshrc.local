@@ -1,3 +1,8 @@
+# set PATH
+export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH=$HOME/.local/bin:$PATH
+export PATH=~/.binenv:$PATH
+
 # Настройки текстовых редакторов
 export EDITOR=vim
 export LESS="-RFXig --tabs=4"
@@ -42,19 +47,17 @@ zstyle ':completion:*:processes-names' command 'ps -e -o comm='
 zstyle ':completion:*:*:killall:*' menu yes select
 zstyle ':completion:*:killall:*'   force-list always
 
-#
+
 which kubectl &> /dev/null && source ~/.zshrc.kubectl
 which helm &> /dev/null && source ~/.zshrc.helm
-which bitenv &> /dev/null && source ~/.zshrc.bitenv
+which binenv &> /dev/null && source ~/.zshrc.binenv
 which kube_ps1 &> /dev/null && source ~/.zshrc.kube-ps1
 which git &> /dev/null && source ~/.zshrc.git
 
 kubectl krew version &> /dev/null && source  ~/.zshrc.krew
 
-# paths
+# fpath
 fpath=(~/.zsh/completion $fpath)
-export PATH="${PATH}:${HOME}/.krew/bin"
-export PATH=$HOME/.local/bin:$PATH
 
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 

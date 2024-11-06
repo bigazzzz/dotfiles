@@ -1,2 +1,0 @@
-source <(bitenv completion zsh)
-export PATH=~/.binenv:$PATH
