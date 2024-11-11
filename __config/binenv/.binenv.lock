@@ -1,3 +1,13 @@
+#age: default
+age=>1.2.0
+#age-keygen: default
+age-keygen=>1.2.0
+#bat: default
+bat=>0.24.0
+#exa: default
+exa=>0.10.1
+#duf: default
+duf=>0.8.1
 #binenv: default
 binenv=>0.21.1
 #helm: default
@@ -10,9 +20,21 @@ kubectl=>1.31.1
 kubectx=>0.9.5
 #kubens: default
 kubens=>0.9.5
+#sops: default
+sops=>3.9.0
 #websocat: default
 websocat=>1.13.0
 #yh: default
 yh=>0.4.0
 #yq: default
 yq=>4.44.3
+#kail: default
+kail=>0.17.4
+#k9s: default
+k9s=>0.32.5
+#popeye: default
+popeye=>0.21.5
+#tofu: default
+tofu=>1.8.2
+#vault: default
+vault=>1.17.5
