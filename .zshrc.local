@@ -58,6 +58,8 @@ kubectl krew version &> /dev/null && source  ~/.zshrc.krew
 
 # fpath
 fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit
+compinit
 
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
@@ -69,6 +71,6 @@ fpath=(~/.zsh/completion $fpath)
 
 ## ssh agent
 eval $(ssh-agent -s)
-
+comp
 ## server option
 echo "Your last access was $(last|head -n2|tail -n1|sed 's/[^ ]\+ \+[^ ]\+ \+[^ ]\+ \+//;s/ *$//')"
